@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skeleton store</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(2, 8, 20, 0.82),
+            rgba(2, 8, 20, 0.92)
+        ),
+        url("angkor-wat.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Header */
+
+header {
+    padding: 30px 20px;
+    text-align: center;
+
+    background: rgba(0, 10, 25, 0.85);
+
+    border-bottom: 1px solid #00ffd5;
+
+    box-shadow: 0 0 25px #00ffd5;
+}
+
+header h1 {
+    color: #00ffd5;
+    font-size: 38px;
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #00ffd5,
+        0 0 25px #00ffd5;
+}
+
+header p {
+    margin-top: 10px;
+    color: #c9fff8;
+}
+
+
+/* Main */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 45px auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 35px;
+
+    color: #00ffd5;
+
+    text-shadow:
+        0 0 10px #00ffd5;
+}
+
+
+/* Products */
+
+.products {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 25px;
+}
+
+.product {
+    padding: 20px;
+
+    background:
+        rgba(3, 18, 35, 0.88);
+
+    border: 1px solid #00ffd5;
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 15px rgba(0,255,213,0.25);
+
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 20px #00ffd5,
+        0 0 45px rgba(0,255,213,0.3);
+}
+
+.product img {
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 1px solid #00ffd5;
+}
+
+.product h2 {
+    margin: 15px 0 8px;
+}
+
+.price {
+    color: #ffd700;
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
+}
+
+
+/* Button */
+
+button {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #00ffd5,
+        #00aaff
+    );
+
+    color: #001015;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 15px #00ffd5;
+}
+
+
+/* Selected product */
+
+.order {
+    display: none;
+
+    margin-top: 40px;
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        rgba(0, 10, 25, 0.94);
+
+    border: 1px solid #ffd700;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(255,215,0,0.25);
+}
+
+.order.show {
+    display: block;
+}
+
+.order h2 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.selected {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+
+/* Social buttons */
+
+.social {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.social a {
+    padding: 15px;
+
+    text-decoration: none;
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.facebook {
+    background: #1877f2;
+}
+
+.telegram {
+    background: #229ed9;
+}
+
+.tiktok {
+    background: #111;
+    border: 1px solid white;
+}
+
+.social a:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 20px white;
+}
+
+
+/* Info */
+
+.info {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(0,10,20,0.85);
+
+    border-radius: 15px;
+
+    border: 1px solid #00ffd5;
+}
+
+.info h2 {
+    color: #00ffd5;
+    margin-bottom: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(0,5,15,0.95);
+
+    border-top: 1px solid #00ffd5;
+
+    color: #8ffff0;
+}
+
+
+/* Alien decoration */
+
+.alien {
+    position: fixed;
+
+    font-size: 100px;
+
+    opacity: 0.06;
+
+    z-index: -1;
+}
+
+.alien1 {
+    top: 20%;
+    left: 5%;
+}
+
+.alien2 {
+    bottom: 15%;
+    right: 5%;
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="alien alien1">👽</div>
+<div class="alien alien2">👽</div>
+
+
+<header>
+
+    <h1>👽 NTT</h1>
+
+    <p>
+            OMAGA • ONLINE STORE
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <h2 class="title">
+        ⚡ OUR PRODUCTS ⚡
+    </h2>
+
+
+    <div class="products">
+
+
+        <!-- Product 1 -->
+
+        <div class="product">
+
+            <img src="https://tse4.mm.bing.net/th/id/OIP.ZgNGE8Xo30N3GXZTD2mCBgHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+            <h2>Nike Shoes</h2>
+
+            <div class="price">
+                $25
+            </div>
+
+            <button
+                onclick="buyProduct('Cyber Headset', '$25')"
+            >
+                🛒 BUY NOW
+            </button>
+
+        </div>
+
+
+        <!-- Product 2 -->
+
+        <div class="product">
+
+            <img src="https://www.tradeinn.com/f/13865/138654034/asics-sky-elite-ff-2-shoes.jpg">
+
+            <h2>Asics Sky Elite FF 2 Shoes White</h2>
+
+            <div class="price">
+                $40
+            </div>
+
+            <button
+                onclick="buyProduct('Gaming Keyboard', '$40')"
+            >
+                🛒 BUY NOW
+            </button>
+
+        </div>
+
+
+        <!-- Product 3 -->
+
+        <div class="product">
+
+            <img src="https://www.nicekicks.com/files/2025/09/hf2793-300-3-1200x1200.jpg">
+
+            <h2>Nike J3</h2>
+
+            <div class="price">
+                $20
+            </div>
+
+            <button
+                onclick="buyProduct('Cyber Mouse', '$20')"
+            >
+                🛒 BUY NOW
+            </button>
+
+        </div>
+
+
+        <!-- Product 4 -->
+
+        <div class="product">
+
+            <img src="https://tse1.mm.bing.net/th/id/OIP.itjPQVfsJkpqsUsEJUP2gAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+            <h2>Nike Air Zoom</h2>
+
+            <div class="price">
+                $50
+            </div>
+
+            <button
+                onclick="buyProduct('Future Watch', '$50')"
+            >
+                🛒 BUY NOW
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUY / CONTACT AREA -->
+
+    <div
+        class="order"
+        id="order"
+    >
+
+        <h2>
+            🛸 CONTACT ME TO BUY
+        </h2>
+
+        <div
+            class="selected"
+            id="selected"
+        ></div>
+
+        <p>
+            Choose where you want to contact me:
+        </p>
+
+
+        <div class="social">
+
+            <a
+                id="facebook"
+                class="facebook"
+                href="#"
+                target="_blank"
+            >
+                📘 Facebook
+            </a>
+
+
+            <a
+                id="telegram"
+                class="telegram"
+                href="#"
+                target="_blank"
+            >
+                ✈️ Telegram
+            </a>
+
+
+            <a
+                id="tiktok"
+                class="tiktok"
+                href="#"
+                target="_blank"
+            >
+                🎵 TikTok
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFO -->
+
+    <div class="info">
+
+        <h2>
+            ⚡ INFO ⚡
+        </h2>
+
+        <p>
+            Thank you for visiting my store.
+            Select a product and contact me
+            directly to order.
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    👽 NTT STORE
+
+    <br><br>
+
+    © 2026 • MAYGA
+
+</footer>
+
+
+<script>
+
+/* ==========================
+   YOUR SOCIAL ACCOUNTS
+========================== */
+
+/*
+   CHANGE THESE THREE LINKS
+   TO YOUR REAL ACCOUNTS.
+*/
+
+const FACEBOOK =
+    "https://www.facebook.com/gu.rong.607978";
+
+const TELEGRAM =
+    "https://t.me/@rongruz";
+
+const TIKTOK =
+    "https://www.tiktok.com/@olivera_sambaa";
+
+
+/* ==========================
+   BUY PRODUCT
+========================== */
+
+function buyProduct(name, price) {
+
+    const order =
+        document.getElementById("order");
+
+    const selected =
+        document.getElementById("selected");
+
+
+    /*
+       Show selected product
+    */
+
+    selected.innerHTML =
+        "You selected: <strong>" +
+        name +
+        "</strong><br>" +
+        "Price: <strong>" +
+        price +
+        "</strong>";
+
+
+    /*
+       Show contact area
+    */
+
+    order.classList.add("show");
+
+
+    /*
+       Set social links
+    */
+
+    document.getElementById("facebook").href =
+        FACEBOOK;
+
+    document.getElementById("telegram").href =
+        TELEGRAM;
+
+    document.getElementById("tiktok").href =
+        TIKTOK;
+
+
+    /*
+       Scroll to contact area
+    */
+
+    order.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
